@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/static/style.css" type="text/css" />
+        <title>Studli</title>
+    </head>
+
+    <body>
+        <header>
+            <div id="branding">
+                <h1>STUDLI</h1>
+                <div id="gitlab"><a href="https://gitlab.com/magnetic2247/pronote_killer"><img src="/static/gitlab.png" alt="gitlab logo" /></a></div>    
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/write?mode=2">Ajouter une Option</a></li>
+                    <li><a href="/write?mode=0">Ajouter un Élève</a></li>
+                    <li><a href="/write?mode=1">Ajouter un Prof</a></li>
+                    <li><a href="/write?mode=3">Supprimer un Élève</a></li>
+                    <li><a href="/write?mode=4">Mettre à jour un prof</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            {% if mode == 0 %}
+            <h2 class="center">Ajouter un Élève</h2 class="center">
+            <form method="post" action="/students/add/">
+                <label for="last">Nom</label><input type="text" name="last" />
+                <label for="first">Prénom</label><input type="text" name="first" /><br />
+                <label for="dnd">Date de naissance</label>
+                <input type="date" name="dnd" />
+                <label for="option">Option</label><input type="text" name="option" />
+                <input type="submit" />
+            </form>
+            {% elif mode == 1 %}
+            <h2 class="center">Ajouter un Prof</h2 class="center">
+            <form method="post" action="/teachers/add/">
+                <label for="last">Nom</label><input type="text" name="last" />
+                <label for="first">Prénom</label><input type="text" name="first" />
+                <input type="submit" />
+            </form>
+            {% elif mode == 2 %}
+            <h2 class="center">Ajouter une Option</h2 class="center">
+            <form method="post" action="/options/add/">
+                <label for="id">Identifiant</label><input type="text" name="id" />
+                <label for="teacher">ID Prof</label><input type="text" name="teacher" />
+                <label for="subject">Matière</label><input type="text" name="subject" />
+                <input type="submit" />
+            </form>
+            {% elif mode == 3 %}
+            <h2 class="center">Supprimer un Élève</h2>
+            <form method="post" action="/students/kill/">
+                <label for="id">Identifiant</label><input type="text" name="id" />
+                <input type="submit" />
+            </form>
+            {% else %}
+            <h2 class="center">Mettre à jour les données d'un prof</h2 class="center">
+            <form method="post" action="/teachers/update/">
+                <label for="id">Identifiant</label><input type="text" name="id" />
+                <label for="last">Nom</label><input type="text" name="last" />
+                <label for="first">Prénom</label><input type="text" name="first" />
+                <input type="submit" />
+            </form>
+            {% endif %}
+        </section>
+    </body>
+</html>
