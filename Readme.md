@@ -1,1 +1,1 @@
-# Bataille
+# Un jeu de Bataille
