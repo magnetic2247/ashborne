@@ -1,11 +1,17 @@
+#!/usr/bin/python
 from tkinter import *
 import tkinter.font
 import sys
 sys.path.insert(1, 'backend/')
 import Game
 
+# Process Arguments
+print(sys.argv, len(sys.argv))
+if len(sys.argv) == 2: r = int(sys.argv[1])
+else: r = 10
+
 # Game Object
-game = Game.Bataille()
+game = Game.Bataille(rounds=r)
 
 
 # Window Size
