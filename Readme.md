@@ -10,9 +10,8 @@ It's not a great game. Was made as part of a school project.
 `pip install -r requirements.txt`
 
 ## Starting the game
-- Navigate to the "game" directory of the repo
 - Run the game
-`python3 game.py`
+`python3 main.py`
 - Enjoy!
 
 ## Authors
