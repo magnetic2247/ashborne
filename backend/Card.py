@@ -8,6 +8,10 @@ class Card:
         # Store Attributes
         self.value = value
         self.sign = sign
+
+    # Calculate Card ID (number n in sorted deck, from 0 to 51)
+    def id(self):
+        return ["hearts", "clubs", "diamonds", "spades"].index(self.sign) * 13 + self.value - 2
     
     # Convert to String
     def __str__(self):
@@ -19,6 +23,7 @@ class Card:
         
         # Otherwise, the card is named by it's value
         return f"{self.value} of {self.sign}"
+
     
     # Compare
     def __lt__(self, other):
