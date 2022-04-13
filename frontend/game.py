@@ -68,9 +68,9 @@ def keyev(event):
     # If Game is Finished, Show Winner
     if game.finished:
         # Determine Winner
-        if len(game.player1) == len(game.player2): msg = "PLAYER 1 WON!"
+        if len(game.player1) == len(game.player2): msg = "TIE"
         elif len (game.player1) > len(game.player2): msg = "PLAYER 2 WON!"
-        else: msg = "TIE!"
+        else: msg = "PLAYER 1 WON!"
 
         # Show Winner
         canvas.delete(roundcount)
